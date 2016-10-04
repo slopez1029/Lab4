@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<title>The Watch Store</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+	<style>
+	.fieldset { font-size: 25px; font-weight: bold; color: brown; }
+	.text  { color: white; }
+	</style>
+
+    <style>
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: right;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: brown;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+        .button:hover {background-color: brown}
+        .button:active {
+            background-color: brown;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        
+    </style>
+</head>
+
+<body background = watch.jpg>
+
+	<div id="page-wrap">
+		
+		
+		<h1 class = "fieldset">The Watch Store</h1>
+		
+		
+		<form action="backEnd.php" method="post" id="frontEnd" onsubmit = "return checkout()">
+		<br>
+		<br>
+		<br> 
+		<br>
+		
+		<input type="text" name="user" id="user" placeholder = "Please enter username"  />	 
+		<input type="text" name="pass" id="pass" placeholder = "Please enter password"  />	
+		<br>
+		<br>
+		<br>
+		<br>
+            <ol class = "text">
+            
+                <li>
+                
+                    <h3 class = "text">Automatic Watch ($39.99)</h3>
+                    
+                    <div>
+			<!--<label for="question-2-answers-B">Please Enter Quantity:</label>-->
+                        <input type="text" name="question-1-answers" id="question-1-answers-A" placeholder = "Please enter quantity"  />			
+                    </div>    
+		<br>
+		<br>
+		<br>                
+                
+                </li>
+                
+                <li>
+                
+                    <h3>Chronograph Watch ($49.99)</h3>
+                    
+                    <div>
+                        <input type="text" name="question-2-answers" id="question-2-answers-A" placeholder="Please enter quantity"/>
+                    </div>
+                                        
+                </li>
+                <br>
+		<br>
+		<br> 
+
+                <li>
+                
+                    <h3>Diver Watch ($45.99)</h3>
+                    
+                    <div>
+                        <input type="text" name="question-3-answers" id="question-3-answers-A" placeholder="Please enter quantity" />                       
+                    </div>
+     
+                </li>
+                <br>
+		<br>
+		<br> 
+
+                <li>
+                
+                    <h3>Italian Design Watch ($79.99)</h3>
+                    
+                    <div>
+                        <input type="text" name="question-4-answers" id="question-4-answers-A" placeholder ="Please enter quantity" />
+                    </div>                   
+                
+                </li>
+                <br>
+		<br>
+		<br> 
+                <li>
+                
+                    <h3>Military Watch ($59.99)</h3>
+                    
+                    <div>
+                        <input type="text" name="question-5-answers" id="question-5-answers-A" placeholder ="Please enter quantity" />
+                    </div>                
+                
+                </li>
+		
+		 <br>
+		<br>
+		<br> 
+		</ol>
+
+                    <h3 class = "text">Choose Shipping:</h3>
+                    <br>
+                    <div>
+                        <input type="radio" name="question-6-answers" id="question-6-answers-A" value="A" />
+                        <label class = "text" for="question-6-answers-A">7 day (No Cost)</label>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="radio" name="question-6-answers" id="question-6-answers-B" value="B" />
+                        <label class = "text" for="question-6-answers-B">3 day ($5.00)</label>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="radio" name="question-6-answers" id="question-6-answers-C" value="C" />
+                        <label class = "text" for="question-6-answers-C">Overnight ($50.00)</label>
+                    </div>	
+
+		<br> <br>
+		<br>
+		<br> 
+            <input type="submit" value="Checkout" class = "button" />           
+		
+		</form>
+		
+		 <script>
+            function checkout() 
+            {
+                var a = parseInt(document.getElementById("question-1-answers-A").value);
+                var b = parseInt(document.getElementById("question-2-answers-A").value);
+                var c = parseInt(document.getElementById("question-3-answers-A").value);
+                var d = parseInt(document.getElementById("question-4-answers-A").value);
+                var e = parseInt(document.getElementById("question-5-answers-A").value);
+                var f = document.getElementById("question-6-answers-A").checked;
+                var g = document.getElementById("question-6-answers-B").checked;
+                var h = document.getElementById("question-6-answers-C").checked;
+                
+                var x = document.getElementById('user');
+                var atpos=x.value.indexOf("@");
+                var dotpos=x.value.lastIndexOf(".");
+                if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+                {
+                    alert("Not a valid e-mail address");
+                    return false;
+                } 
+                
+                
+               else if(isNaN(a) || document.getElementById("question-1-answers-A").value == "" || a < 0)
+                {
+                   // if(a == undefined)
+                   // {
+                    alert("Please enter a valid quantity for item 1");
+                    return false;
+                    //}
+                    //window.location.href = "fro.html";
+                }
+               else if(isNaN(b) || document.getElementById("question-2-answers-A").value == "" || b < 0)
+                {
+                    alert("Please enter a valid quantity for item 2");
+                    return false;
+                    //window.location.href = "fro.html";
+                }
+              else if(isNaN(c) || document.getElementById("question-3-answers-A").value == "" || c < 0)
+                {
+                    alert("Please enter a valid quantity for item 3");
+                    return false;
+                    //window.location.href = "fro.html";
+                }
+              else if(isNaN(d) || document.getElementById("question-4-answers-A").value == "" || d < 0)
+                {
+                    alert("Please enter a valid quantity for item 4");
+                    return false;
+                    //window.location.href = "fro.html";
+                }
+              else if(isNaN(e) || document.getElementById("question-5-answers-A").value == "" || e < 0)
+                {
+                    alert("Please enter a valid quantity for item 5");
+                    return false;
+                    //window.location.href = "fro.html";
+                }
+                else if( f == false && g == false && h == false)
+                {
+                    alert("Please select a shipping option");
+                    return false;
+                }
+                
+                return true;
+            }
+        </script>
+	
+	</div>
+	
+	
+
+</body>
+
+</html>
